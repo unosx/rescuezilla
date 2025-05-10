@@ -1,5 +1,6 @@
 [![Rescuezilla banner](docs/images/banner.big.png)](https://rescuezilla.com) 
 
+##
 # Rescuezilla [![Build Status](https://github.com/rescuezilla/rescuezilla/actions/workflows/build-rescuezilla-iso.yml/badge.svg?event=push&branch=master)](https://github.com/rescuezilla/rescuezilla/actions) [![Translation status](https://hosted.weblate.org/widgets/rescuezilla/-/svg-badge.svg)](https://hosted.weblate.org/engage/rescuezilla/)
 
 Rescuezilla is an easy-to-use disk cloning and imaging application that's fully compatible with Clonezilla — the industry-standard trusted by tens of millions.
