@@ -33,3 +33,4 @@ swapoff --all
 sudo umount -lrf /isodevice
 
 exit 0
+

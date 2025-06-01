@@ -88,7 +88,7 @@ else
   exit 1
 fi
 
-apt-get install --yes --no-install-recommends "${apt_pkg_list[@]}"
+apt-get install --yes --no-install-recommends -o Dpkg::Options::="--force-confnew" "${apt_pkg_list[@]}"
 if [[ $? -ne 0 ]]; then
     echo "Error: Failed to install packages."
     exit 1
@@ -147,16 +147,18 @@ if test "z\`ps -e | grep rescuezillapy\`" != "z"; then
         exit 1
 fi
 EOF
+
 cp /usr/sbin/gparted /usr/sbin/gparted.copy
 # Remove #!/bin/sh shebang from the GParted launcher script
 sed --in-place '1d' /usr/sbin/gparted.copy
 # Prepend the Rescuezilla check to the GParted launcher script.
 cat /tmp/gparted.rescuezilla.check.sh /usr/sbin/gparted.copy > /usr/sbin/gparted
+
 rm /usr/sbin/gparted.copy
 
 ln -s /usr/bin/pcmanfm /usr/bin/nautilus
-rm /usr/bin/{rpcclient,smbcacls,smbclient,smbcquotas,smbget,smbspool,smbtar}
-rm /usr/share/icons/*/icon-theme.cache
+rm -rf /usr/bin/{rpcclient,smbcacls,smbclient,smbcquotas,smbget,smbspool,smbtar}
+rm -rf /usr/share/icons/*/icon-theme.cache
 rm -rf /usr/share/doc
 rm -rf /usr/share/man
 rm -rf /etc/network/if-up.d/ntpdate
