@@ -231,8 +231,8 @@ docker-add-safe-directory:
 # docker-test:
 # 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make test
 
-# docker-status:
-# 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make status
+docker-status:
+	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make status
 
 # Start an interactive bash session for live debugging
 docker-bash:
