@@ -37,7 +37,7 @@ jobs:
       - run: make docker-status
       - name: Make DEB package
         run: make docker-deb
-      - run: sudo mv build/rescuezilla_${{env.DEB_VERSION}}-1_all.deb completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
+      - run: sudo mv build/rescuezilla_*-1_all.deb completed-artifacts/rescuezilla_*-1_all.deb
 
       - name: Run unit tests within the Docker container
         run: make docker-test
@@ -49,7 +49,7 @@ jobs:
       - run: sudo make clean-all
 
       - name: Create checksums for ISO images
-        run: cd completed-artifacts && sudo ../src/scripts/create-iso-checksums.sh rescuezilla_${{env.DEB_VERSION}}-1_all.deb  rescuezilla-${{github.ref_name}}-*.iso
+        run: cd completed-artifacts && sudo ../src/scripts/create-iso-checksums.sh rescuezilla_*-1_all.deb  rescuezilla-${{github.ref_name}}-*.iso
 
       - name: Upload release assets (on tag push)
         uses: softprops/action-gh-release@v1
@@ -57,7 +57,7 @@ jobs:
         with:
           files: |
             completed-artifacts/*SUM
-            completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
+            completed-artifacts/rescuezilla_*-1_all.deb
             completed-artifacts/rescuezilla-${{github.ref_name}}-*.iso
 
       # Upload GitHub Action workflow *artifacts*. Note "artifacts" are a different concept to GitHub release rssets. The former is available on each GitHub Actions
