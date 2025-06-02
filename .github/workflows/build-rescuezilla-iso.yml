@@ -42,7 +42,7 @@ jobs:
       - run: make docker-status
       - name: Make Ubuntu 24.04 LTS (Noble) ISO
         run: make docker-bookworm
-      - run: sudo mv build/rescuezilla.amd64.noble.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.bookworm.iso
+      - run: sudo mv build/rescuezilla*.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.bookworm.iso
       - run: sudo make clean-all
 
       - name: Create checksums for ISO images
