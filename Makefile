@@ -228,8 +228,8 @@ docker-stop:
 docker-add-safe-directory:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container ./src/scripts/git-add-safe-directory.sh
 
-# docker-test:
-# 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make test
+docker-test:
+	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make test
 
 docker-status:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make status
